@@ -54,9 +54,13 @@ function App() {
       <Logo />
       <Display data={total} />
       <div className='App'>
-        <Specials changeData={changeData} />
-        <Numbers changeData={changeData} />
-        <Operators changeData={changeData} />
+        <div className="left-specials-nums">
+          <Specials changeData={changeData} />
+          <Numbers changeData={changeData} />
+        </div>
+        <div className='right-operators'>
+          <Operators changeData={changeData} />
+        </div>
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
       </div>
     </div>

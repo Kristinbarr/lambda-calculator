@@ -9,7 +9,7 @@ const Operators = (props) => {
   const [operatorsState, setOperatorState] = useState(operators)
 
   return (
-    <div>
+    <div className='Operators'>
       {operatorsState.map((operatorObj) => (
         <OperatorButton
           operatorObj={operatorObj}
