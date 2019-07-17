@@ -1,14 +1,15 @@
-import React from "react";
-import "./App.css";
-import Display from'./components/DisplayComponents/Display'
+import React, { useState } from "react";
+// import "./App.css";
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 
 // Logo has already been provided for you. Do the same for the remaining components
 import Logo from "./components/DisplayComponents/Logo";
+import Display from'./components/DisplayComponents/Display'
 import Specials from './components/ButtonComponents/SpecialButtons/Specials'
 import Numbers from './components/ButtonComponents/NumberButtons/Numbers'
 import Operators from "./components/ButtonComponents/OperatorButtons/Operators";
+import math from './math'
 
 function App() {
   // STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
@@ -16,18 +17,50 @@ function App() {
   // Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
   // the "5" button, or the operator if they click one of those buttons) and then call your setter function to update state.
   // Don't forget to pass the functions (and any additional data needed) to the components as props
+  const [x, setX] = useState(0)
+  const [y, setY] = useState(0)
+  const [op, setOp] = useState('')
+  const [data, setData ] = useState(0)
+  const [total, setTotal ] = useState(0)
+
+  const changeData = (input) => {
+    // console.log('input:', input, typeof input)
+    if (input === 'C') {
+      setX(0)
+      setY(0)
+      setOp('')
+      setData(0)
+      setTotal(0)
+    } else if (input==='+' || input==='-' || input==='*' || input==='/') {
+      setOp(input)
+      // console.log('set op',op)
+      setTotal(input)
+    } else if (typeof parseInt(input) === 'number' && op){
+      input ? input.concat(input) : setY(input)
+      // console.log('set y', input)
+      setTotal(input)
+    } else if (typeof parseInt(input) === "number" && !op) {
+      // console.log('set x', input)
+      setTotal(input)
+    } else if (input === '=') {
+      setTotal(math(x,y,op))
+      // console.log('total',total, 'data', data)
+      setData(0)
+    }
+  }
 
   return (
-    <div className="container">
+    <div className='container'>
       <Logo />
-      <div className="App">
-        <Specials />
-        <Numbers />
-        <Operators />
+      <Display data={total} />
+      <div className='App'>
+        <Specials changeData={changeData} />
+        <Numbers changeData={changeData} />
+        <Operators changeData={changeData} />
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
       </div>
     </div>
-  );
+  )
 }
 
 export default App;
