@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import NumberButton from './NumberButton'
 //import any components needed
 import { numbers } from '../../../data.js'
@@ -6,17 +6,14 @@ import { numbers } from '../../../data.js'
 
 // KB: Numbers contains individual buttons, takes in changeData prop from app.js
 const Numbers = (props) => {
-
-  const [numbersState, setNumber] = useState(numbers)
-  // KB: if you don't use the setter 'setNumber', can you omit it from the declaration?
-
   // STEP 2 - add the imported data to state
   return (
-    <div className='Numbers'>
-      {numbersState.map((number) => (
+    <div className='numbers'>
+      {numbers.map((number) => (
         <NumberButton
           number={number}
-          changeData={props.changeData}
+          display={props.display}
+          setDisplay={props.setDisplay}
           key={number}
         />
       ))}

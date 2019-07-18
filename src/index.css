@@ -28,7 +28,7 @@ button {
 .container .logo-container {
   padding-bottom: 1rem;
 }
-.container .Display {
+.container .display {
   margin-bottom: 1.5rem;
   padding: 1.6rem;
   background-color: #14121e;
@@ -36,33 +36,33 @@ button {
   font-size: 3rem;
   border-radius: 10rem;
 }
-.container .App {
+.container .app {
   display: flex;
   justify-content: flex-end;
 }
-.container .App .left-specials-nums {
+.container .app .left-specials-nums {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-.container .App .left-specials-nums .Specials button {
+.container .app .left-specials-nums .specials button {
   background-color: #1a61b0;
 }
-.container .App .left-specials-nums .Numbers {
+.container .app .left-specials-nums .numbers {
   display: flex;
   flex-wrap: wrap;
 }
-.container .App .left-specials-nums .Numbers button {
+.container .app .left-specials-nums .numbers button {
   background-color: #0c3c78;
 }
-.container .App .left-specials-nums .Numbers button:nth-child(10) {
+.container .app .left-specials-nums .numbers button:nth-child(10) {
   width: 14rem;
 }
-.container .App .right-operators .Operators {
+.container .app .right-operators .operators {
   display: flex;
   flex-direction: column;
 }
-.container .App .right-operators .Operators button {
+.container .app .right-operators .operators button {
   background-color: #3ab5e5;
 }
 
